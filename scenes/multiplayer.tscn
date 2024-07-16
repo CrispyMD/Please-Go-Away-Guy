@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxg73jcqt82e"]
+
+[ext_resource type="Script" path="res://scripts/Multiplayer.gd" id="1_cfa83"]
+
+[node name="Multiplayer" type="Node"]
+script = ExtResource("1_cfa83")
+
+[node name="Host" type="Button" parent="."]
+offset_left = 129.0
+offset_top = 47.0
+offset_right = 201.0
+offset_bottom = 78.0
+text = "Host"
+
+[node name="Connect" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 249.0
+offset_right = 126.0
+offset_bottom = 280.0
+text = "Connect"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_right = 153.0
+offset_bottom = 31.0
+
+[node name="spawn_card" type="Button" parent="."]
+offset_left = -429.0
+offset_top = -38.0
+offset_right = -329.0
+offset_bottom = -7.0
+text = "Spawn Card"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/card.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="spawn_card" to="." method="_on_spawn_card_pressed"]
